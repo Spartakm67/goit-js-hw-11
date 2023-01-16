@@ -5,29 +5,21 @@ import axios, {isCancel, AxiosError} from 'axios';
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-const keyPixabay = '32703006-cccd8a05397b9c29232fd5c43';
-const BASE_URL = 'https://pixabay.com/api';
 
-function getGallery() {
-     
-  return fetch(`https://pixabay.com/api/?key=32703006-cccd8a05397b9c29232fd5c43&q=black+cats&image_type=photo&pretty=true`).then(
-        response => {
-            if (response.status === 404) {
-                throw new Error();
-            } else return response.json();
-    }
-  )
-    .catch(() => Notiflix.Notify.failure('Oops, there is no country with that name'));
+
+const KEY_PIXABAY = '332702624-2e762d8c87a3cafce881a5f67';
+                     
+const BASE_URL = 'https://pixabay.com/api/';
+
+
+async function getGallery() {
+  try {
+    const response = await axios.get(`${BASE_URL}?key=${KEY_PIXABAY}&q=black+dogs&image_type=photo&pretty=true`);
+    return response;
+    
+  } catch (error) {
+    Notiflix.Notify.failure(`${error}`);;
+  }
 };
-
-
-// async function getGallery() {
-//   try {
-//     const response = await axios.get('${BASE_URL}/?key=32703006-cccd8a05397b9c29232fd5c43&q=black+cats&image_type=photo&pretty=true');
-//     console.log(response);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
 
 getGallery();
