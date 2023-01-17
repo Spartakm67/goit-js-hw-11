@@ -28,7 +28,7 @@ loadMoreBtn.addEventListener('click', Markup.loadMoreBtn);
 
 function gallerySearch(event) {
   event.preventDefault();
-  // addedbtn.classList.add('hidden');
+  addedbtn.classList.add('hidden');
   currentPage = 0;
   const inputValue = event.currentTarget.elements.searchQuery.value;
   gallery.innerHTML = '';
