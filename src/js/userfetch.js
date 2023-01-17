@@ -1,7 +1,7 @@
 import Notiflix from 'notiflix';
 import axios, {isCancel, AxiosError} from 'axios';
 
-const KEY_PIXABAY = '332702624-2e762d8c87a3cafce881a5f67';            
+const KEY_PIXABAY = '32702624-2e762d8c87a3cafce881a5f67';            
 const BASE_URL = 'https://pixabay.com/api/';
 
 const per_page = 40;
