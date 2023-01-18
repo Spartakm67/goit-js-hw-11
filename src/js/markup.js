@@ -1,29 +1,45 @@
 
-
-function loadMoreBtn() {
-    const inputValue = form.elements.searchQuery.value;
-    getGallery(inputValue);
-  };
+import Fetch from './fetch';
 
 
-function  markupGallery() {};
+  const galleryDiv = document.querySelector('.gallery');
+  const loadStop = document.querySelector('.load-stop');
 
-/* <div class="photo-card">
-        <img src="https://unsplash.com/s/photos/seeker" alt="Interesting pictures" loading="lazy" />
-        <div class="info">
-          <p class="info-item">
-            <b>Likes</b>
-          </p>
-          <p class="info-item">
-            <b>Views</b>
-          </p>
-          <p class="info-item">
-            <b>Comments</b>
-          </p>
-          <p class="info-item">
-            <b>Downloads</b>
-          </p>
-        </div>
-        </div> */
+        function  markupGallery(userSearchArray) {
+            const markup = userSearchArray
+              .map(
+                ({
+                  webformatURL,
+                  largeImageURL,
+                  tags,
+                  likes,
+                  views,
+                  comments,
+                  downloads,
+                }) => `<a class="big-photo-ref" href="${largeImageURL}"><div class="photo-card">
+              <img src="${webformatURL}" alt="${tags}" loading="lazy" />
+              <div class="info">
+                <p class="info-item">
+                  <b>Likes: ${likes}</b>
+                </p>
+                <p class="info-item">
+                  <b>Views: ${views}</b>
+                </p>
+                <p class="info-item">
+                  <b>Comments: ${comments}</b>
+                </p>
+                <p class="info-item">
+                  <b>Downloads: ${downloads}</b>
+                </p>
+              </div>
+            </div></a>`
+              )
+              .join('');
+            galleryDiv.insertAdjacentHTML('beforeend', markup);
+          
+            Fetch.gallery.refresh();
+            addedbtn.classList.remove('hidden');
+          }
+          
 
-  export default { loadMoreBtn, markupGallery };
+  export default { loadStop, galleryDiv, markupGallery };
