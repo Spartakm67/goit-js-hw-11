@@ -1,9 +1,11 @@
+import '../css/styles.css';
+
 import Notiflix from 'notiflix';
 import axios, {isCancel, AxiosError} from 'axios';
 import Markup from './markup';
 
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 let gallery = new SimpleLightbox('.gallery .gallery-box', {
   captionDelay: 250,

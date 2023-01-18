@@ -2,8 +2,8 @@ import './css/styles.css';
 
 import Notiflix from 'notiflix'; 
 import axios, {isCancel, AxiosError} from 'axios';
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 import Fetch from './js/fetch';
 import Markup from './js/markup';
@@ -22,7 +22,7 @@ function userSearch(event) {
   
   const inputValue = event.currentTarget.elements.searchQuery.value.trim();
   Markup.galleryDiv.innerHTML = '';
-  // Markup.loadStop.innerHTML = '';
+  Markup.loadStop.innerHTML = '';
   Fetch.getGallery(inputValue);
 };
 
