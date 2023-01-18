@@ -10,11 +10,7 @@ import Markup from './js/markup';
 
 const form = document.querySelector('.search-form');
 
-
-
 const loadMoreBtn = document.querySelector('.load-more');
-const addedbtn = document.querySelector('.load-more-btn');
-
 
 form.addEventListener('submit', userSearch);
 loadMoreBtn.addEventListener('click', loadMore);
@@ -22,7 +18,7 @@ loadMoreBtn.addEventListener('click', loadMore);
 
 function userSearch(event) {
   event.preventDefault();
-  addedbtn.classList.add('hidden');
+  Markup.loadStop.classList.add('hidden');
   
   const inputValue = event.currentTarget.elements.searchQuery.value.trim();
   Markup.galleryDiv.innerHTML = '';

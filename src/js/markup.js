@@ -16,7 +16,7 @@ import Fetch from './fetch';
                   views,
                   comments,
                   downloads,
-                }) => `<a class="big-photo-ref" href="${largeImageURL}"><div class="photo-card">
+                }) => `<a class="gallery-box" href="${largeImageURL}"><div class="photo-card">
               <img src="${webformatURL}" alt="${tags}" loading="lazy" />
               <div class="info">
                 <p class="info-item">
@@ -38,7 +38,7 @@ import Fetch from './fetch';
             galleryDiv.insertAdjacentHTML('beforeend', markup);
           
             Fetch.gallery.refresh();
-            addedbtn.classList.remove('hidden');
+            Fetch.addLoadBtn.classList.remove('hidden');
           }
           
 

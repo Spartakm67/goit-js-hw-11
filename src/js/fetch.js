@@ -5,12 +5,13 @@ import Markup from './markup';
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-let gallery = new SimpleLightbox('.gallery .big-photo-ref', {
+let gallery = new SimpleLightbox('.gallery .gallery-box', {
   captionDelay: 250,
 });
 
 const KEY_PIXABAY = '32702624-2e762d8c87a3cafce881a5f67';            
 const BASE_URL = 'https://pixabay.com/api/';
+const addLoadBtn = document.querySelector('.load-more-btn');
 
 const per_page = 40;
 let page = 0;
@@ -34,7 +35,7 @@ async function getGallery(inputValue) {
       );
 
     if ((hits.length && per_page > hits.length) || maxLoadQ < 40) {
-        addedbtn.classList.add('hidden');
+      addLoadBtn.classList.add('hidden');
       const infoByEnd = `<div class="info-by-end">We're sorry, but you've reached the end of search results.</div>`;
       endedInfo.insertAdjacentHTML('beforeend', infoByEnd);
     }
@@ -43,16 +44,16 @@ async function getGallery(inputValue) {
       Notiflix.Notify.info(`Hooray! We found ${totalHits} images.`);
     }
 
-    // if (per_page > 1) {
-    //   const { height: cardHeight } = document
-    //     .querySelector('.gallery')
-    //     .firstElementChild.getBoundingClientRect();
+    if (per_page > 1) {
+      const { height: cardHeight } = document
+        .querySelector('.gallery')
+        .firstElementChild.getBoundingClientRect();
 
-    //   window.scrollBy({
-    //     top: cardHeight * 2,
-    //     behavior: 'smooth',
-    //   });
-    // }
+      window.scrollBy({
+        top: cardHeight * 2,
+        behavior: 'smooth',
+      });
+    }
     return response;
     
     } catch (error) {
@@ -60,4 +61,4 @@ async function getGallery(inputValue) {
   }
 };
 
-export default { gallery, getGallery };
+export default { addLoadBtn, gallery, getGallery };
