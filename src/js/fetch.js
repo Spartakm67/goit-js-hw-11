@@ -4,10 +4,15 @@ import Notiflix from 'notiflix';
 import axios, {isCancel, AxiosError} from 'axios';
 import Markup from './markup';
 
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
+import SimpleLightbox from "simplelightbox";
+// import SimpleLightbox from "simplelightbox/dist/simple-lightbox.esm";
+import "simplelightbox/dist/simple-lightbox.min.css";
 
-let gallery = new SimpleLightbox('.gallery .gallery-box', {
+let gallery = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionsPositions: 'bottom',
+  nav: true,
+  close: true,
   captionDelay: 250,
 });
 
@@ -17,7 +22,7 @@ const addLoadBtn = document.querySelector('.load-more-btn');
 
 const per_page = 40;
 let page = 0;
-let maxLoadQ = 200;
+let maxLoadQ = 100;
 
 async function getGallery(inputValue) {
 
@@ -38,8 +43,8 @@ async function getGallery(inputValue) {
 
     if ((hits.length && per_page > hits.length) || maxLoadQ < 40) {
       addLoadBtn.classList.add('hidden');
-      const infoByEnd = `<div class="info-by-end">We're sorry, but you've reached the end of search results.</div>`;
-      endedInfo.insertAdjacentHTML('beforeend', infoByEnd);
+      const endOfTotal = `<div class="info-by-end">We're sorry, but you've reached the end of search results.</div>`;
+      Markup.loadStop.insertAdjacentHTML('beforeend', endOfTotal);
     }
 
     if (per_page === 1 && hits.length) {
