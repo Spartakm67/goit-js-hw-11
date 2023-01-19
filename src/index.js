@@ -57,6 +57,7 @@ async function getGallery(inputValue) {
     } else {
       addLoadBtn.classList.add('hidden');
       page = 0;
+      // maxLoadQ = 0;
       Notiflix.Notify.warning(
         `Sorry, there are no images matching your search query. Please try again.`
       )}

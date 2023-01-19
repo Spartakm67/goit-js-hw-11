@@ -15,6 +15,7 @@
 //   captionDelay: 250,
 // });
 
+
 // const KEY_PIXABAY = '32702624-2e762d8c87a3cafce881a5f67';            
 // const BASE_URL = 'https://pixabay.com/api/';
 // const addLoadBtn = document.querySelector('.load-more-btn');
@@ -69,4 +70,5 @@
 //   }
 // };
 
-// export default { addLoadBtn, gallery, getGallery };
+
+// export default { getGallery };
