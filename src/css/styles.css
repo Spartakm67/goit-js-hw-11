@@ -6,7 +6,10 @@ body {
   width: 100%;
   position: absolute;
 }
-
+/* .container {
+  margin: 0 auto;
+  padding: 0 auto;
+} */
 .hidden {
   position: absolute;
   width: 1px;
@@ -23,27 +26,41 @@ body {
 
 .search-form {
   height: 60px;
-  background-image: linear-gradient(90deg, #788ba1 15%, rgba(161, 120, 132, .7) 40%, rgba(123, 120, 161, 0.6) 75%, rgba(213, 117, 63, .7));
+  background-image: linear-gradient(90deg, #112e50 15%, rgba(161, 120, 132, .7) 40%, rgba(31, 20, 182, 0.6) 75%, rgba(57, 55, 54, 0.7));
   padding: 5px;
   text-align: center;
   position: fixed;
   z-index: 99;
   width: 100%;
+  margin-top: -10px;
 }
 
 
 
-input,
-.search-btn {
+input {
   font-weight: 400;
   font-size: 15px;
   line-height: 1.88;
   letter-spacing: 0.06em;
-  background-color: white;
+  background-color: #ffffff;
   cursor: pointer;
-  border: 1px solid rgba(211, 125, 75, 0.788);
+  border: 1px solid rgba(211, 125, 75, 0.146);
   padding: 10px 32px;
-  border-radius: 7px;
+  border-radius: 5px;
+  transition: background-color 750ms cubic-bezier(0.4, 0, 0.8, 1);
+}
+
+.search-btn,
+.load-more-btn {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+  background-color: yellow;
+  cursor: pointer;
+  border: 1px solid rgba(211, 125, 75, 0.146);
+  padding: 10px 32px;
+  border-radius: 5px;
   transition: background-color 750ms cubic-bezier(0.4, 0, 0.8, 1);
 }
 
@@ -51,24 +68,20 @@ input,
 .search-btn:focus,
 .load-more:focus,
 .load-more:hover {
-  background-color: rgba(211, 125, 75, 0.788);
-
+  background-color: rgba(166, 211, 75, 0.981);
+  color: #ffffff;
 }
 
-
 .gallery {
-  margin: 20px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 100px;
   position: relative;
 }
 
 .photo-card img {
   width: 300px;
   height: 200px;
-
 }
 
 
@@ -101,24 +114,6 @@ input,
   padding: 10px 32px;
   border-radius: 7px;
   transition: background-color 750ms cubic-bezier(0.4, 0, 0.8, 1);
-}
-
-.load-more-btn {
-  height: 60px;
-  padding: 5px;
-  background-image: linear-gradient(90deg, #788ba1 15%, rgba(161, 120, 132, .7) 40%, rgba(123, 120, 161, 0.6) 75%, rgba(213, 117, 63, .7));
-}
-
-
-.load-stop {
-  height: 60px;
-  font-weight: 800;
-  font-size: 20px;
-  line-height: 1.88;
-  text-align: center;
-  letter-spacing: 0.06em;
-  color: rgb(255, 255, 255);
-  background-image: linear-gradient(90deg, #788ba1 15%, rgba(161, 120, 132, .7) 40%, rgba(123, 120, 161, 0.6) 75%, rgba(213, 117, 63, .7));
 }
 
 .gallery-box {

@@ -5,11 +5,9 @@ import Markup from './js/markup';
 
 const form = document.querySelector('.search-form');
 const loadMoreBtn = document.querySelector('.load-more');
-// const input = document.querySelector('.text');
+
 form.addEventListener('submit', userSearch);
 loadMoreBtn.addEventListener('click', loadMore);
-
-
 
 function userSearch(event) {
   event.preventDefault();
@@ -27,7 +25,7 @@ function loadMore() {
 };
 
 Notiflix.Notify.init({
-  position: 'center-top',
+  position: 'right-top',
   width: '380px',
   distance: '30px',
   opacity: 1,

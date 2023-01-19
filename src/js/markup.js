@@ -8,14 +8,7 @@ import Fetch from './fetch';
         function  markupGallery(userSearchArray) {
             const markup = userSearchArray
               .map(
-                ({
-                  webformatURL,
-                  largeImageURL,
-                  tags,
-                  likes,
-                  views,
-                  comments,
-                  downloads,
+                ({ webformatURL, largeImageURL, tags, likes, views, comments, downloads,
                 }) => `<a class="gallery-box" href="${largeImageURL}"><div class="photo-card">
               <img src="${webformatURL}" alt="${tags}" loading="lazy" />
               <div class="info">

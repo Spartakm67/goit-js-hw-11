@@ -5,7 +5,6 @@ import axios, {isCancel, AxiosError} from 'axios';
 import Markup from './markup';
 
 import SimpleLightbox from "simplelightbox";
-// import SimpleLightbox from "simplelightbox/dist/simple-lightbox.esm";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
 let gallery = new SimpleLightbox('.gallery a', {
@@ -22,7 +21,7 @@ const addLoadBtn = document.querySelector('.load-more-btn');
 
 const per_page = 40;
 let page = 0;
-let maxLoadQ = 100;
+let maxLoadQ = 500;
 
 async function getGallery(inputValue) {
 
@@ -39,12 +38,14 @@ async function getGallery(inputValue) {
     } else
       Notiflix.Notify.warning(
         `Sorry, there are no images matching your search query. Please try again.`
-      );
+      )
 
     if ((hits.length && per_page > hits.length) || maxLoadQ < 40) {
       addLoadBtn.classList.add('hidden');
-      const endOfTotal = `<div class="info-by-end">We're sorry, but you've reached the end of search results.</div>`;
-      Markup.loadStop.insertAdjacentHTML('beforeend', endOfTotal);
+
+      Notiflix.Notify.warning(
+        `We're sorry, but you've reached the end of search results.`
+      )
     }
 
     if (per_page === 1 && hits.length) {
@@ -64,7 +65,7 @@ async function getGallery(inputValue) {
     return response;
     
     } catch (error) {
-  Notiflix.Notify.failure(`${error}`);;
+  Notiflix.Notify.failure(`${error}`);
   }
 };
 
