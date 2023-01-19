@@ -1,10 +1,7 @@
 import './css/styles.css';
 import Notiflix from 'notiflix'; 
-// import Fetch from './js/fetch';
-// import Markup from './js/markup';
 import axios, {isCancel, AxiosError} from 'axios';
-// import Markup from './markup';
-
+ 
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
@@ -51,7 +48,6 @@ async function getGallery(inputValue) {
     const totalHits = response.data.totalHits;
     console.log(response);
     
-
     if (hits.length) {
         markupGallery(response.data.hits);
     } else {
