@@ -6,10 +6,7 @@ body {
   width: 100%;
   position: absolute;
 }
-/* .container {
-  margin: 0 auto;
-  padding: 0 auto;
-} */
+
 .hidden {
   position: absolute;
   width: 1px;
@@ -34,7 +31,6 @@ body {
   width: 100%;
   margin-top: -10px;
 }
-
 
 
 input {
@@ -73,10 +69,16 @@ input {
 }
 
 .gallery {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  position: relative;
+  gap: 30px;
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  
 }
 
 .photo-card img {
