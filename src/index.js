@@ -124,7 +124,7 @@ function  markupGallery(userSearchArray) {
 Notiflix.Notify.init({
   position: 'right-top',
   width: '380px',
-  distance: '30px',
+  distance: '20px',
   opacity: 1,
   borderRadius: '5px',
   rtl: false,
